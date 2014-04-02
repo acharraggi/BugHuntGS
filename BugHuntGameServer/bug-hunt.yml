@@ -1,0 +1,14 @@
+defaultName: Stranger
+logging:
+  level: INFO
+  loggers:
+    com.mikesilversides: DEBUG
+  # ...
+  # Settings for logging to stdout.
+  console:
+
+    # If true, write log statements to stdout.
+    enabled: true
+
+    # Do not display log statements below this threshold to stdout.
+    threshold: ALL
