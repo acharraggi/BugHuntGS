@@ -7,7 +7,7 @@ import com.mikesilversides.bughuntgs.core.Scores;
 //import com.mikesilversides.bughuntgs.core.*;
 
 import com.codahale.metrics.annotation.Timed;
-//import com.wordnik.swagger.annotations.*;
+
 
 import javax.ws.rs.*;
 //import javax.ws.rs.GET;
@@ -22,8 +22,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.wordnik.swagger.annotations.*;
+
 @Path("/scores")
-//@Api( value = "/scores", description = "Manage top 10 player scores" )
+@Api( value = "/scores", description = "Manage top 10 player scores" )
 @Produces(MediaType.APPLICATION_JSON)
 public class BugHuntResource {
 	final static Logger logger = LoggerFactory.getLogger(BugHuntResource.class);
@@ -48,12 +50,12 @@ public class BugHuntResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Timed
-   // @ApiOperation(value = "Save player score", 
-  //     notes = "Save a player score. Returns the score with an id assigned.", 
-   //    response = InScore.class   )
+    @ApiOperation(value = "Save player score", 
+       notes = "Save a player score. Returns the score with an id assigned.", 
+       response = InScore.class   )
   //  @ApiResponses(value = { @ApiResponse(code = 405, message = "Invalid input") })
-    public Score saveScore(/* @ApiParam(value = "The score to be saved.", required = true)  */
-    					/*	@PathParam("InScore")  */
+    public Score saveScore( @ApiParam(value = "The score to be saved.", required = true)  
+    						/*@PathParam("iScore") */ 
     						InScore iScore) {
 //    public Score saveScore(InScore iScore) {
     	logger.debug("saveScore: playerName="+iScore.getPlayerName());
@@ -64,7 +66,7 @@ public class BugHuntResource {
     
     @GET
     @Timed
-   // @ApiOperation(value = "Get top 10 scores.", notes = "Returns an array of player scores.", response = Scores.class)
+    @ApiOperation(value = "Get top 10 scores.", notes = "Returns an array of player scores.", response = Scores.class)
     public Score[] getScores() {
     	logger.debug("getScores: number of scores returned="+theScores.top10().length);
         return   theScores.top10();

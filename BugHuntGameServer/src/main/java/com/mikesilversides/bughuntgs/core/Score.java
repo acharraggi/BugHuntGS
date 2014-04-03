@@ -1,15 +1,15 @@
 package com.mikesilversides.bughuntgs.core;
 
-//import com.wordnik.swagger.annotations.*;
+import com.wordnik.swagger.annotations.*;
 
-//@ApiModel( value = "Score", description = "Player score resource representation" )
+@ApiModel( value = "Score", description = "Player score resource representation" )
 public class Score implements Comparable<Score> {
 
-	//@ApiModelProperty( value = "Player's score id", required = true )
+	@ApiModelProperty( value = "Player's score id", required = true )
 	private final long id;
-	//@ApiModelProperty( value = "Player's name", required = true )
+	@ApiModelProperty( value = "Player's name", required = true )
     private final String playerName;
-	//@ApiModelProperty( value = "Player's score", required = true )
+	@ApiModelProperty( value = "Player's score", required = true )
     private final long theScore;
 
     public Score(long id, String playerName, long score) {
