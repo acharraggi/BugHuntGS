@@ -3,6 +3,7 @@
 	<name>BugHuntGameServer</name>
 	<comment></comment>
 	<projects>
+		<project>dropwizard-swagger</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

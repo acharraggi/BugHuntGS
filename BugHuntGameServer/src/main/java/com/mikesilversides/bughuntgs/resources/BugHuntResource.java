@@ -51,13 +51,11 @@ public class BugHuntResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Timed
     @ApiOperation(value = "Save player score", 
-       notes = "Save a player score. Returns the score with an id assigned.", 
-       response = InScore.class   )
-  //  @ApiResponses(value = { @ApiResponse(code = 405, message = "Invalid input") })
+       notes = "Save a player score. Returns the score with an id assigned. Currently implemented as an in memory array.", 
+       response = Score.class )
+    @ApiResponses(value = { @ApiResponse(code = 400, message = "Invalid input field. Only playerName and score are valid.") })
     public Score saveScore( @ApiParam(value = "The score to be saved.", required = true)  
-    						/*@PathParam("iScore") */ 
     						InScore iScore) {
-//    public Score saveScore(InScore iScore) {
     	logger.debug("saveScore: playerName="+iScore.getPlayerName());
     	Score newScore = new Score(counter.incrementAndGet(), iScore.getPlayerName(), iScore.getScore());
     	theScores.putScore(newScore);
@@ -66,7 +64,10 @@ public class BugHuntResource {
     
     @GET
     @Timed
-    @ApiOperation(value = "Get top 10 scores.", notes = "Returns an array of player scores.", response = Scores.class)
+    @ApiOperation(value = "Get top 10 scores.", 
+    	notes = "Returns an array of the top 10 player scores.", 
+    	response = Score.class,
+    	responseContainer = "List")
     public Score[] getScores() {
     	logger.debug("getScores: number of scores returned="+theScores.top10().length);
         return   theScores.top10();
