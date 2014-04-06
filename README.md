@@ -14,17 +14,16 @@ There's also a [Soap-UI](http://www.soapui.org/) project for even more testing a
 I started with [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/keplersr2).
 
 Get the Bug Hunt Game Server code from GitHub.
-File -> Import -> Git -> Projects from Git -> Clone URI.
-https://github.com/acharraggi/BugHuntGS.git
+File -> Import -> Git -> Projects from Git -> Clone URI: `https://github.com/acharraggi/BugHuntGS.git`
 
-- do a Maven Package build
+- do a Maven Package build. 
 
-Start the API:
-java -jar target/BugHuntGameServer-0.0.1-SNAPSHOT.jar server bug-hunt.yml 
+This will build a fat jar that you can run directly.
+`java -jar target/BugHuntGameServer-0.0.1-SNAPSHOT.jar server bug-hunt.yml`
 
 View the documentation at: [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
 Swagger lets you construct API messsages, submit them and view the responses.
 
 An alternate way to execute the API is via Soap-UI. A Soap-UI project file is at:
-BugHuntGameServer\src\test\soapUI\BugHunt-soapui-project.xml
+`BugHuntGameServer\src\test\soapUI\BugHunt-soapui-project.xml`
 
