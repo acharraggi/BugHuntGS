@@ -25,7 +25,7 @@ There's also a [Soap-UI](http://www.soapui.org/) project for even more testing a
 5. View the API documentation at: [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/).
  Swagger lets you construct API messsages, submit them and view the responses.
 
- ![Swagger-UI image](https://github.com/acharraggi/BugHuntGS/swagger-ui.jpg "Bug Hunt Game Server Swagger-UI")
+ ![Swagger-UI image](https://github.com/acharraggi/BugHuntGS/raw/swagger-ui.jpg "Bug Hunt Game Server Swagger-UI")
 
  An alternate way to execute the API is via Soap-UI. A Soap-UI project file is at:
  `BugHuntGameServer\src\test\soapUI\BugHunt-soapui-project.xml`
